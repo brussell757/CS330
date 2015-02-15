@@ -1,0 +1,8 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$storage_8cpp.html#ab2b66f058c5ebcf5e178deb1af383a6b" title="parseItemList" alt="" coords="121,5,232,32"/>
+<area shape="rect" id="node4" href="$storage_8cpp.html#a1b40a991b016ca74dd3938570f6a60b1" title="parseInventoryFile" alt="" coords="105,56,248,83"/>
+<area shape="rect" id="node6" href="$storage_8cpp.html#afe29067dcc37eb0e29a926425f6a106f" title="printItems" alt="" coords="133,107,220,133"/>
+<area shape="rect" id="node7" href="$storage_8cpp.html#aac338f4c3243b391572b950cc40f3158" title="printInventories" alt="" coords="115,157,238,184"/>
+<area shape="rect" id="node3" href="$storage_8cpp.html#aaaf0da6a7f3fe16c549dcd9aa611797a" title="trim" alt="" coords="348,5,393,32"/>
+<area shape="rect" id="node5" href="$classInventory.html#a6639c60f848a068bab124fdca04129b7" title="Inventory::addItems" alt="" coords="296,56,445,83"/>
+</map>

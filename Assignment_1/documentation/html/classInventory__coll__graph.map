@@ -1,0 +1,5 @@
+<map id="Inventory" name="Inventory">
+<area shape="rect" id="node2" href="$structInventory_1_1Node.html" title="Inventory::Node" alt="" coords="5,184,128,211"/>
+<area shape="rect" id="node3" href="$classItemStack.html" title="ItemStack" alt="" coords="23,95,110,121"/>
+<area shape="rect" id="node4" href="$classItem.html" title="Item" alt="" coords="41,5,92,32"/>
+</map>
