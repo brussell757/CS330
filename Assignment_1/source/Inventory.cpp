@@ -94,11 +94,11 @@ bool Inventory::addItems ( ItemStack stack ){
 	
 	Node* new_node = nullptr;
 
-	// Implements a new Inventory, if no ItemStacks exist
-	if(this->first == nullptr) {
+	// Sets new_node equal to a new node containing the current ItemStack
+    new_node = new Node(stack);
 
-		// Sets new_node equal to a new node containing the current ItemStack
-		new_node = new Node(stack);
+	// Insert ItemStack into empty Inventory
+	if(this->first == nullptr) {
 
 		// Sets the first node in the Inventory to the new Node
 		this->first = new_node;
@@ -106,42 +106,49 @@ bool Inventory::addItems ( ItemStack stack ){
 		// Sets the last node in the Inventory to the new Node
 		this->last = new_node;
 
-		// Sets the new_node back to a nullptr;
-		new_node = nullptr;
-
-		// Increments the occupied slots by one
+		// Increase the number of occupied slots by 1
 		occupied++;
 
 		return true;
 
-	} else if(this->first != nullptr) {
-	// Adds a new item to the Inventory if the Inventory is not empty
+	} else {
+		
+		// Statement that executes if the maximum number of slots in the Inventory have not been filled
+		if(occupied <= slots) {
 
-		// Sets the iterator to the last node in the Inventory
-		Node *iterator = this->last;
+			// Sets current node to the head
+			Node *curr = this->first; 
 
-		// Runs until all avaliable slots in an Inventory are full
-		while(occupied < slots) {
+			// Sets trail node to nullptr
+			Node *trail = nullptr;
 
-			// Sets new_node equal to a new node containing the current ItemStack
-			new_node = new Node(stack);
+			// Traverse the list
+			while(curr != nullptr) { 
 
-			// Sets the last node in the Inventory to the new_node
-			iterator = new_node;
+				// Sets the (first->next) node to the new_node (new ItemStack)
+				curr->next = new_node; 
 
-			// Points the last node in the Inventory to a nullptr
-			iterator = iterator->next;
+				// Sets the trail node to the current node (first)
+				trail = curr;
 
-			// Sets the new_node back to a nullptr
-			new_node = nullptr;
+				// Sets the current node to the node after new_node (nullptr)
+				curr = new_node->next;
 
-			// Increments the occupied slots by one
+				return true;
+
+			}
+
+			// Increase the number of occupied slots by 1
 			occupied++;
 
-			return true;
+		} else {
 
+			return false;
+			
 		}
+
 	}
+
 } 
 
 /**
@@ -149,11 +156,12 @@ bool Inventory::addItems ( ItemStack stack ){
  */
 void Inventory::display( std::ostream &outs ) const{
 
-	  outs << std::left << std::setw(3) << " -Used " << occupied << " of " << slots << " slots"; 
-	 
-	  for( Node *item = this->first; item != nullptr; item = item->next ) {
-	  		outs<< std::left << std::setw(3) << "\n" << item->data;
-	  }
+	outs << std::left << std::setw(3) << " -Used " << occupied << " of " << slots << " slots"; 
+
+	for(Node *iterator = this->first; iterator != nullptr; iterator = iterator->next) {	
+
+		outs<< std::left << std::setw(3) << "\n" << iterator->data;
+	}
 }
 
 /**
