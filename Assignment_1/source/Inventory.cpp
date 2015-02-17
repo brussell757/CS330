@@ -159,12 +159,16 @@ bool Inventory::addItems ( ItemStack stack ){
  */
 void Inventory::display( std::ostream &outs ) const{
 
-	outs << std::left << std::setw(3) << "\n" << " -Used " << occupied << " of " << slots << " slots"; 
+	outs << std::left << std::setw(3) << " -Used " << occupied << " of " << slots << " slots"; 
 
 	for(Node *iterator = this->first; iterator != nullptr; iterator = iterator->next) {	
 
-		outs<< std::left << std::setw(3) << "\n" << iterator->data;
+		outs<< std::left << std::setw(3);
+		outs<< "\n";
+		outs<< iterator->data;
 	}
+
+	outs << "\n";
 }
 
 /**
