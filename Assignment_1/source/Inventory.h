@@ -80,14 +80,9 @@ class Inventory{
         void display( std::ostream &outs ) const;
         
         /**
-         *
+         * Returns the first node
          */
         Inventory::Node* begin() const;
-
-        /**
-         *
-         */
-        Inventory::Node* end() const;
 
         /**
          * Overloaded assignment operator for Inventory
